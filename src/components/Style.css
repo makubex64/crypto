@@ -1,0 +1,190 @@
+
+
+/*input search*/
+
+.form-lala{
+	position:relative;
+}
+
+.lalala-dataResult{
+
+	background: rgba(28, 33, 41);
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	position: absolute ;
+
+	overflow: hidden;
+	overflow-y: auto;
+
+
+
+	width: 100%;
+	max-width: 100%;
+	height: 200px;
+}
+
+.lalala-dataResult::-webkit-scrollbar{
+	display: none;
+}
+
+.lalala-dataResult .dataItem{
+	width:100%;
+	height: 50px;
+	display: flex;
+	align-item: center;
+	
+}
+
+.dataItem p{
+	margin-left:10px;
+}
+
+/*NAVBAR*/
+.navigation {
+	font-size: 18px;
+
+}
+
+.navigation ul{
+	margin: 0;
+	padding: 0;
+
+}
+.navigation li{
+	display:inline;
+  padding-left: 10px;
+  padding-right:10px;
+  
+}
+
+.navigation ul li a{
+	text-decoration: none;
+	cursor: pointer;
+	background: #000;
+}
+
+/*scroll sticky table*/
+
+.is-sticky {
+  position: sticky;
+  top: 70px;
+}
+
+/*remove sticky-media querys table coins*/
+@media only screen and (max-device-width : 999px) {
+    .is-sticky {
+        position: relative;
+        top: 0px;
+    }
+}
+
+@media only screen and (max-width: 999px) {
+     table {
+       display: block;
+       overflow-x: auto;
+       white-space: nowrap;
+
+     }
+
+    
+}
+
+/*Network online offline*/
+
+.network{
+	position: fixed;
+  	bottom: 0;
+  	z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+	.network{
+		width:160px;
+		padding: 5px;
+		
+	}
+	.network span{
+		margin-left: 10px;
+	}
+}
+
+/*DARK-MODE */
+/*theme mode*/
+
+[data-theme="light"]{
+  --text-color: black;
+  --background-color: white;
+}
+
+[data-theme="dark"]{
+  --text-color: #fcfcfc;
+  --background-color: #212F3C;
+  
+}
+
+.dark input::placeholder {
+ color: white !important;
+ opacity: 0.8;
+ }
+
+ .input-wrapper{
+  position: relative;
+}
+
+.input-wrapper input{
+  box-sizing: border-box;
+  padding: 5px 35px;
+}
+
+ /*icon search*/
+ .bi-search{
+  position: absolute;
+  top: 50%;
+  margin-left: 10px;
+  transform: translateY(-50%);
+  -webkit-text-stroke: 1px;
+  color:grey;
+}
+
+.App{
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/*trending coins dark-mode*/
+/*working with class*/
+
+.background-dark{
+	background:#212F3C;
+	color:white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*list hover*/
+
+.list-hover-light:hover{
+	background-color: #E3E9EE;
+}
+
+.list-hover-dark:hover{
+
+	background-color: #2A3A4B;
+}
+
+/*CoinID.jsx*/
+/*price is > 1 In CoinID.js */
+.green-up{
+	color: rgba(75,192,192,1);
+}
+
+/*.coin-id{
+	margin-bottom: 20rem;
+}*/
+canvas{
+	  width:100% !important;
+    height:550px !important;
+
+}
+
+
+
