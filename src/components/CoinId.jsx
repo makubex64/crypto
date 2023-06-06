@@ -1,4 +1,4 @@
-import {useLoaderData, useParams, Link, useNavigate  } from 'react-router-dom';
+import {useLoaderData, useParams, Link, useNavigate, ScrollRestoration   } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -41,7 +41,6 @@ const [chart, setChart]     = useState([]);
 const {theme} =    useDarkModeContext();
 
 
-console.log(lalala)
 
 
 
@@ -152,6 +151,7 @@ useEffect(()=>{
 		<>
 		
 		<div className="coin-id py-5">
+		<ScrollRestoration />
 
 		<div 
 		style={{cursor: "pointer", color: "rgba(75,192,192,1)"}}

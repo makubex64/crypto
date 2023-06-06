@@ -1,68 +1,3 @@
-
-
-/*input search*/
-
-.form-lala{
-	position:relative;
-}
-
-.lalala-dataResult{
-
-	background: rgba(28, 33, 41);
-	color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	position: absolute ;
-
-	overflow: hidden;
-	overflow-y: auto;
-
-
-
-	width: 100%;
-	max-width: 100%;
-	height: 200px;
-}
-
-.lalala-dataResult::-webkit-scrollbar{
-	display: none;
-}
-
-.lalala-dataResult .dataItem{
-	width:100%;
-	height: 50px;
-	display: flex;
-	align-item: center;
-	
-}
-
-.dataItem p{
-	margin-left:10px;
-}
-
-/*NAVBAR*/
-.navigation {
-	font-size: 18px;
-
-}
-
-.navigation ul{
-	margin: 0;
-	padding: 0;
-
-}
-.navigation li{
-	display:inline;
-  padding-left: 10px;
-  padding-right:10px;
-  
-}
-
-.navigation ul li a{
-	text-decoration: none;
-	cursor: pointer;
-	background: #000;
-}
-
 /*scroll sticky table*/
 
 .is-sticky {
@@ -122,10 +57,79 @@
   
 }
 
+/*INPUT SEARCH*/
+
+.form-lala{
+	position:relative;
+	
+}
+
+
+
+.lalala-dataResult{
+
+	background: white;
+	color: black;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	position: absolute ;
+
+	overflow: hidden;
+	overflow-y: auto;
+
+
+
+	width:100%;
+	
+	height: 200px;
+}
+
+@media only screen and (max-width: 700px) {
+    
+  	.input-pro {
+  		display: none;
+  		background:red;
+		}
+
+		.input-wrapper{
+			margin-right: 25px;
+		}
+
+		
+
+		.border{		
+		font-size: 12px;
+		
+		
+	}
+
+  
+
+  .lalala-dataResult{
+  		border: solid 1px blue;
+    	
+    	
+
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+.lalala-dataResult::-webkit-scrollbar{
+	display: none;
+}
+
 .dark input::placeholder {
  color: white !important;
  opacity: 0.8;
  }
+
 
  .input-wrapper{
   position: relative;
@@ -133,8 +137,10 @@
 
 .input-wrapper input{
   box-sizing: border-box;
-  padding: 5px 35px;
+  padding: 5px 30px;
+  width:280px;
 }
+
 
  /*icon search*/
  .bi-search{

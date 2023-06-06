@@ -6,8 +6,8 @@ import {
 
 import React, {Suspense} from 'react'
 
-const Coins = React.lazy(()=> import ('../components/Coins'))         
-const CoindId = React.lazy(()=> import ('../components/CoinId'))    
+import Coins  from '../components/Coins'         
+import CoindId from '../components/CoinId'    
 import Root                      from './Root'
 import ErrorElement              from '../components/ErrorElement'
 
@@ -24,18 +24,14 @@ export const router = createBrowserRouter([
           children: [
               {
                 index: "/",
-                element:  <Suspense fallback={<> <p className="mt-5">loading...</p> </> } > 
-                            <Coins /> 
-                          </Suspense> ,                
-                id: "root",
+                element: <Coins />,                
+                
                       
               },
 
               {
                 path: "/coinId/:id",
-                element:  <Suspense fallback={<> <p className="mt-5">loading...</p> </> }> 
-                            <CoindId />  
-                          </Suspense> ,
+                element: <CoindId />,
                 
                 
               }, 

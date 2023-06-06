@@ -1,4 +1,4 @@
-import {useLoaderData, useNavigate, } from 'react-router-dom';
+import {useLoaderData, useNavigate, ScrollRestoration } from 'react-router-dom';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import {useGlobalContext} from '../context/GlobalContext'
 import {useDarkModeContext} from '../context/ThemeContext'
@@ -18,16 +18,16 @@ useEffect(() => {
     const chatEl = document.querySelector('.sidebar').getBoundingClientRect();
     setChatWidth(chatEl.width);
     setSidebarTop(chatEl.top);
-  }, []);
 
-useEffect(() => {
     if (!sidebarTop) return;
-
     window.addEventListener('scroll', isSticky);
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
+
   }, [sidebarTop]);
+
+
 
   const isSticky = (e) => {
     const chatEl = document.querySelector('.sidebar');
@@ -50,7 +50,7 @@ const titles = [
 	 						'7d', 
 	 						'24h Volume', 
 	 						'Mkt Cap',
-	 						'Last 7 days'
+	 						
 	 			];
 
 const styles = {
@@ -66,6 +66,9 @@ const styles = {
 		<>
 
 		<div className="mt-5 row">
+
+		<ScrollRestoration />
+
 		<h5 className="fw-bold">Trending Coins</h5>
 
 			{
@@ -164,11 +167,7 @@ const styles = {
 						<td >{item?.total_volume?.toLocaleString()} </td>
 						<td> {item?.market_cap?.toLocaleString()} </td>
 
-						<td>						
-							<Sparklines style={{cursor: "pointer"}} onClick={() => navigate(`/coinId/${item.id}`)} data={item?.sparkline_in_7d.price}>
-                    		<SparklinesLine color='teal'/>
-               </Sparklines> 							
-						</td>
+					
 
 					</tr>
 					)})

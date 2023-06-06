@@ -4,47 +4,57 @@ import { useParams,useNavigate    }   from 'react-router-dom';
 import                                     './Style.css'
 import {useGlobalContext}             from '../context/GlobalContext'
 import {useDarkModeContext}           from '../context/ThemeContext'
+import Image    from '../../public/vite.svg'
+import debounce from 'lodash.debounce';
 import DarkMode from './DarkMode'
 
 const NavBar = ()=>{
 
 const navigate =                      useNavigate();
 const {id}  =                         useParams();
-const {timeOutRef} =                  useRef();
 const inputClickRef =                 useRef(null);
-const {lalala} =                      useGlobalContext();
+const {lalala, setCoins} =            useGlobalContext();
 const {theme, setTheme} =             useDarkModeContext();
+const [value, setValue] =             useState("");
+const [loading, setLoading]       =   useState(false);
 
-const [filteredData, setFilteredData] = useState([])
-const [show, setShow] = useState(false)
+const [windowSize, setWindowSize] = useState(getWindowSize());
+console.log(windowSize.innerWidth)
 
-const handleFilter = (event)=>{
-    const searchWord = event.target.value;
-    const newFilter = lalala.filter((value)=>
-      value.symbol.toLowerCase().includes(searchWord.toLowerCase())
-      |      
-      value.name.toLowerCase().includes(searchWord.toLowerCase())
+function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
 
-         );
+useEffect(()=>{
 
-    if(searchWord === ""){
-      setFilteredData([])
+  function handleWindowResize(){
+    setWindowSize(getWindowSize());
+  }
 
-    }else{
-      setFilteredData(newFilter); 
+  window.addEventListener('resize', handleWindowResize=>{
+    if(getWindowSize.innerWidth <= 700){
 
     }
+  });
 
-  
- }
+  return ()=>{
+    window.removeEventListener('resize', handleWindowResize)
+  }
 
- const handleClick = (event)=>{
-  
-  inputClickRef.current.value = '';
-  setFilteredData([])
-  setShow(!show)
+}, []);
 
- }
+
+
+
+const onChange = (event)=>{
+  let query = event.target.value;
+  setValue(query)
+}
+
+const onClear = () => {
+    ref.current.value = "";
+}
 
 const styles = {
   navbar:{
@@ -60,51 +70,114 @@ const styles = {
   },
 
   searchResult:{
-    backgroundColor: theme === "dark" ? "white" : null
+    backgroundColor: theme === "dark" ? "#212F3C" : null,
+    color: theme === "dark" ? "white" : null
 
   }
 }
-
 return(
 
 <>  
 
 
 <nav style={styles.navbar} className="py-3 navbar navbar-expand-lg shadow fixed-top"  >
-  <div className="container-fluid">
-    <button onClick={handleClick} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div  className={`collapse navbar-collapse ${show ? "show": null }`} id="navbarTogglerDemo02">
+  <div className="container-fluid ">    
       
 
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0 navigation">
-        <li className="nav-item">
-          <a style={{cursor: "pointer"}} onClick={() => navigate(`/`)}  >Home</a>
-        </li>
-        <li className="nav-item">
-          <a style={{cursor: "pointer"}} >News</a>
-        </li>
-        <li className="nav-item">
-          <a style={{cursor: "pointer"}}>Other</a>
-        </li>
-      </ul>
+      <div className="">
+        <a style={{cursor: "pointer"}} onClick={() => navigate(`/`)}  ><img  src={Image} alt="" /> CryptoMain</a>
+      </div>
+
+      
 
     {/*DARK-MODE*/}
+    <div className="border border-secondary ps-2 pe-2  rounded-pill">
       <DarkMode/>
+    </div>
+      
+   
+      
 
     
-      <div style={{width:"20rem"}} className="input-wrapper d-flex form-lala" >
+      <div  className="d-flex form-lala" >
+
+      <div className=" input-wrapper">
         <i className="bi bi-search"></i>
-        <input style={styles.input} ref={inputClickRef} onChange={handleFilter}  className="form-control input" type="search" placeholder="Search" aria-label="Search" />
+        <input style={styles.input} value={value} onChange={onChange} className="form-control input-pro" type="search" placeholder="Search" aria-label="Search" />
+      </div>
+     
+        
        
        {
+        value.length != 0 ?(
+
+          <div style={styles.searchResult} className="lalala-dataResult mt-5 p-1">
+
+          {
+            lalala.filter(item=>{
+              const searchTerm = value.toLowerCase() || value.toUpperCase();
+              const fullName   = item.name.toLowerCase().includes(value.toLowerCase())   || 
+                                 item.name.toUpperCase().includes(value.toUpperCase())   || 
+                                 item.symbol.toLowerCase().includes(value.toLowerCase()) ||
+                                 item.symbol.toUpperCase().includes(value.toUpperCase())
+
+              return searchTerm && fullName
+            })
+            .slice(0,9)
+            .map(item=>{
+              
+              return <a style={{cursor: 'pointer'}} onClick={()=> {setValue(""), navigate(`/coinId/${item.id}`)}} className="list-group-item py-1" key={item.id}>
+                      <img style={{width: "20px"}} className="me-2" src={item.image} alt={item.image} />
+                      <span className="me-2">{item.name}</span>
+                      <span className="text-uppercase  me-3">{item.symbol}</span>                                         
+                      <span style={{fontSize: "10px"}} className="badge bg-info">Rank :{" "} {item.market_cap_rank}</span>
+                
+                     </a>
+            })
+          }
+            
+          </div>
+          ): null
+            
+       }
+
+
+       {/*
+        searchText.length > 0 ? (
+          
+          <div onClick={handleClick} style={styles.searchResult} className="lalala-dataResult mt-5 p-1">
+                
+                  {
+                    searchData ?
+
+                    searchData.slice(0,5).map(coin=>{
+                      console.log(coin)
+                      return <a onClick={()=> navigate(`/coinId/${coin.id}`) }  style={{textDecoration: "none", cursor: "pointer"}}  key={coin.id}  className="list-group-item py-1">
+                              <img style={{width: "20px"}} className="me-2" src={coin.large} alt={coin.image} /> 
+                              <span className="me-2">{coin.name}</span>
+                              <span className="text-uppercase  me-3">{coin.symbol}</span>                                         
+                             <span style={{fontSize: "10px"}} className="badge bg-info">Rank :{" "} {coin.market_cap_rank}</span>                      
+
+                            </a>
+                        
+
+
+                    })
+
+                    : <p>Please wait...</p>
+                  }
+                
+              </div>
+        ) : null  */}
+
+
+       {/*
         filteredData.length != 0 && (
 
           <div style={styles.searchResult} className="lalala-dataResult mt-5">
             
               {
-                filteredData.slice(0,8).map(item=>{
+                filteredData.slice(0,2).map(item=>{
                   return(
                     <a style={{textDecoration: "none"}} onClick={handleClick} key={item.id}  className="dataItem">
                       <p style={{width:"100%"}} onClick={()=> navigate(`/coinId/${item.id}`,{replace: true})}>                
@@ -121,10 +194,10 @@ return(
           </div>
 
           ) 
-       }
+      */ }
        
       </div>
-    </div>
+   
   </div>
 </nav>
 
