@@ -1,7 +1,6 @@
 import {
   createHashRouter, 
-  createBrowserRouter,
-  useLoaderData
+  
 } from "react-router-dom";
 
 import React from 'react'
@@ -13,7 +12,7 @@ import ErrorElement              from '../components/ErrorElement'
 
 
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
