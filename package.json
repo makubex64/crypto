@@ -2,10 +2,11 @@
   "name": "crypto-api",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://makubex64.github.io/crypto",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build", 
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview"
