@@ -19,7 +19,6 @@ const [value, setValue] =             useState("");
 const [loading, setLoading]       =   useState(false);
 
 const [windowSize, setWindowSize] = useState(getWindowSize());
-console.log(windowSize.innerWidth)
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -58,20 +57,20 @@ const onClear = () => {
 
 const styles = {
   navbar:{
-    backgroundColor : theme === "dark" ? "#212F3C" : "white",
-    color: theme === "dark" ? "white" : null,
+    backgroundColor : theme === "Light" ? "#212F3C" : "white",
+    color: theme === "Light" ? "white" : null,
 
   },
   input:{
-    backgroundColor: theme === "dark" ? "#212F3C" : null,
-    borderColor: theme === "dark" ? "#404040" : "",
-    color: theme === "dark" ? "white" : null
+    backgroundColor: theme === "Light" ? "#212F3C" : null,
+    borderColor: theme === "Light" ? "#404040" : "",
+    color: theme === "Light" ? "white" : null
 
   },
 
   searchResult:{
-    backgroundColor: theme === "dark" ? "#212F3C" : null,
-    color: theme === "dark" ? "white" : null
+    backgroundColor: theme === "Light" ? "#212F3C" : null,
+    color: theme === "Light" ? "white" : null
 
   }
 }
@@ -80,7 +79,7 @@ return(
 <>  
 
 
-<nav style={styles.navbar} className="py-3 navbar navbar-expand-lg shadow fixed-top"  >
+<nav style={styles.navbar} className="py-3 navbar navbar-expand-lg shadow fixed-top "  >
   <div className="container-fluid ">    
       
 

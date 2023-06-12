@@ -4,7 +4,7 @@ import {
   useLoaderData
 } from "react-router-dom";
 
-import React, {Suspense} from 'react'
+import React from 'react'
 
 import Coins  from '../components/Coins'         
 import CoindId from '../components/CoinId'    

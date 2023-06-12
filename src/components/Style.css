@@ -46,17 +46,15 @@
 /*DARK-MODE */
 /*theme mode*/
 
-[data-theme="light"]{
-  --text-color: black;
-  --background-color: white;
+/*light and Dark  mode*/
+.Light {
+background-color: rgb(32 44 55); 
+color: white;
 }
-
-[data-theme="dark"]{
-  --text-color: #fcfcfc;
-  --background-color: #212F3C;
-  
+.Dark {
+background-color: #fff;
+color: black;
 }
-
 /*INPUT SEARCH*/
 
 .form-lala{
@@ -125,7 +123,7 @@
 	display: none;
 }
 
-.dark input::placeholder {
+.Light input::placeholder {
  color: white !important;
  opacity: 0.8;
  }

@@ -4,11 +4,11 @@ const DarkModeContext = createContext();
 
 const DarkModeProvider = ({children})=>{
 
-const [theme, setTheme] = useState(localStorage.getItem('light'))
+const [theme, setTheme] = useState(localStorage.getItem('light') || 'dark')
 
 useEffect(()=>{
 
-	localStorage.setItem('light', theme)
+  localStorage.setItem('light', theme)
   document.body.className = theme;
 },[theme])
 

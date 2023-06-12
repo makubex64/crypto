@@ -87,7 +87,7 @@ useEffect(()=>{
  // 
   const options = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     aspectRatio: 2,
 
  // Modify the axis by adding scales
@@ -309,70 +309,70 @@ useEffect(()=>{
 
 				<div className="row row-cols-6 me-5 container-fluid">
 
-					<div className={` me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={` me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Price Change (24h)</p>
 					    <p className={`card-text ${lalala.market_data?.price_change_percentage_24h > 0 ? "text-success" : "text-danger"} `} >{lalala.market_data?.price_change_percentage_24h?.toFixed(2)} %</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Price Change (7d)</p>
 					    <p className={`card-text ${lalala.market_data?.price_change_percentage_7d > 0 ? "text-success" : "text-danger"} `}>{lalala.market_data?.price_change_percentage_7d?.toFixed(2)} %</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Price Change (14d)</p>
 					    <p className={`card-text ${lalala.market_data?.price_change_percentage_14d > 0 ? "text-success" : "text-danger"} `}>{lalala.market_data?.price_change_percentage_14d.toFixed(2)} %</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Price Change (30d)</p>
 					    <p className={`card-text ${lalala.market_data?.price_change_percentage_30d > 0 ? "text-success" : "text-danger"} `}>{lalala.market_data?.price_change_percentage_30d.toFixed(2)} %</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Price Change (60d)</p>
 					    <p className={`card-text ${lalala.market_data?.price_change_percentage_60d > 0 ? "text-success" : "text-danger"} `}>{lalala.market_data?.price_change_percentage_60d.toFixed(2)} %</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Price Change (1y)</p>
 					    <p className={`card-text ${lalala.market_data?.price_change_percentage_1y > 0 ? "text-success" : "text-danger"} `}>{lalala.market_data?.price_change_percentage_1y.toFixed(2)} %</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Market Cap</p>
 					    <p className="card-text">$ {lalala.market_data?.market_cap?.usd.toLocaleString()}</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">Volume (24h)</p>
 					    <p className="card-text">$ {lalala.market_data?.total_volume?.usd.toLocaleString()}</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">24h High</p>
 					    <p className="card-text">$ {lalala.market_data?.high_24h?.usd.toLocaleString()}</p>
 					  </div>
 					</div>
 
-					<div className={`me-2 col card shadow ${theme === "dark" ? " background-dark" : null } `} style={{width: "12rem"}}>
+					<div className={`me-2 col card shadow ${theme === "Light" ? " background-dark" : null } `} style={{width: "12rem"}}>
 					  <div className="card-body">
 					    <p className="card-title">24h Low</p>
 					    <p className="card-text">$ {lalala.market_data?.low_24h?.usd.toLocaleString()}</p>

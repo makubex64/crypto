@@ -56,7 +56,7 @@ const titles = [
 const styles = {
 
 	tableTRBorder :{
-		  borderBottom: theme === "dark" ? " 1px solid #313F4A" : null,
+		  borderBottom: theme === "Light" ? " 1px solid #313F4A" : null,
 
 	}
 }
@@ -75,7 +75,7 @@ const styles = {
 				trending?.map(({item})=>{
 					return(
 					<div key={item?.id} className=" col-12 col-sm-8 col-md-6 col-lg-6 col-xl-4 col-xxl-4"> {/*col-6 col-md-6 col-lg-3 col-xl-2*/}
-						<div  className={`${theme === "dark" ? "background-dark" : null} card my-4`}  style={{width: "22rem", height:"6rem"}}>
+						<div  className={`${theme === "Light" ? "background-dark" : null} card my-4`}  style={{width: "22rem", height:"6rem"}}>
 						  <div className="card-body " >
 
 						  	<div className="d-flex">
@@ -107,7 +107,7 @@ const styles = {
 		
 
 		<table className="table mt-5">
-			<thead className={`${theme === "dark" ? "background-dark": "bg-white"} sidebar`}  >
+			<thead className={`${theme === "Light" ? "background-dark": "bg-white"} sidebar`}  >
 			
 				<tr style={styles.tableTRBorder} >
 
@@ -121,7 +121,7 @@ const styles = {
 				</tr>
 			</thead>
 
-			<tbody className={`${theme === "dark" ? "text-white" : null } `} >
+			<tbody className={`${theme === "Light" ? "text-white" : null } `} >
 
 			{
 				lalala.map((item,id) => { 
@@ -130,7 +130,7 @@ const styles = {
 					return(
 
 
-					<tr style={styles.tableTRBorder} className={`${theme === "dark" ? "list-hover-dark" : "list-hover-light" }`} key={item.id} >
+					<tr style={styles.tableTRBorder} className={`${theme === "Light" ? "list-hover-dark" : "list-hover-light" }`} key={item.id} >
 					
 						<td> {id + 1} </td>
 						<td> <img style={{width:20}} className="" src={item?.image} alt={item?.image}/> </td>					

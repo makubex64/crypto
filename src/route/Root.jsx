@@ -9,7 +9,7 @@ const {theme, setTheme} = useDarkModeContext();
 
 	return ( 
 
-			<div className="App" data-theme={theme}  >
+			<div className="App"  > 
 			
 			<NavBar/>			
 			

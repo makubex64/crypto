@@ -1,5 +1,5 @@
 import {useDarkModeContext} from '../context/ThemeContext'
-import './Style.css'
+import './Style.css' 
 
 const DarkMode = ()=>{
 
@@ -8,7 +8,13 @@ const {theme, setTheme} = useDarkModeContext();
 
 const handleThemeToggle = (event)=>{
 	event.preventDefault();
-	setTheme( theme === "light" ? "dark" : "light" )
+	
+	if(theme === "Dark"){
+    setTheme("Light");
+
+  }else{
+    setTheme("Dark");
+  }
 
 }
 
@@ -20,7 +26,7 @@ const iconDark  = <i className="bi bi-toggle-on"></i>
 		<>
 
 		<span onClick={handleThemeToggle} style={{cursor: "pointer"}}  >
-		{ theme === "light" ? "Dark Mode" : "Light Mode" } 
+		{ theme === "Light" ? " Light Mode" : "Dark Mode" } 
 		</span>
 
 		</>
